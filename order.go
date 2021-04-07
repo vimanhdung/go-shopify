@@ -206,6 +206,17 @@ type DiscountCode struct {
 	Type   string           `json:"type,omitempty"`
 }
 
+type AmountSet struct {
+	ShopMoney        ShopMoney        `json:"shop_money"`
+	PresentmentMoney PresentmentMoney `json:"presentment_money"`
+}
+
+type DiscountAllocation struct {
+	Amount                  float64   `json:"amount"`
+	DiscountAllocationIndex int32     `json:"discount_allocation_index"`
+	AmountSet               AmountSet `json:"amount_set"`
+}
+
 type LineItem struct {
 	ID                         int64            `json:"id,omitempty"`
 	ProductID                  int64            `json:"product_id,omitempty"`
@@ -338,10 +349,16 @@ func (sl *ShippingLines) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+type PriceSet struct {
+	ShopMoney        ShopMoney        `json:"shop_money"`
+	PresentmentMoney PresentmentMoney `json:"presentment_money"`
+}
+
 type TaxLine struct {
-	Title string           `json:"title,omitempty"`
-	Price *decimal.Decimal `json:"price,omitempty"`
-	Rate  *decimal.Decimal `json:"rate,omitempty"`
+	Title    string           `json:"title,omitempty"`
+	Price    *decimal.Decimal `json:"price,omitempty"`
+	PriceSet PriceSet         `json:"price_set"`
+	Rate     *decimal.Decimal `json:"rate,omitempty"`
 }
 
 type Transaction struct {

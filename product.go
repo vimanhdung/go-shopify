@@ -56,10 +56,6 @@ type Product struct {
 	Image                          Image           `json:"image,omitempty"`
 	Images                         []Image         `json:"images,omitempty"`
 	TemplateSuffix                 string          `json:"template_suffix,omitempty"`
-	MetafieldsGlobalTitleTag       string          `json:"metafields_global_title_tag,omitempty"`
-	MetafieldsGlobalDescriptionTag string          `json:"metafields_global_description_tag,omitempty"`
-	Metafields                     []Metafield     `json:"metafields,omitempty"`
-	Status                         string          `json:"status,omitempty"`
 	AdminGraphqlAPIID              string          `json:"admin_graphql_api_id,omitempty"`
 }
 

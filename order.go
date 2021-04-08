@@ -172,8 +172,8 @@ type TotalLineItemsPriceSet struct {
 }
 
 type ShopMoney struct {
-	Amount      *decimal.Decimal `json:"amount,omitempty"`
-	CurrencyCode string `json:"currency_code,omitempty"`
+	Amount       *decimal.Decimal `json:"amount,omitempty"`
+	CurrencyCode string           `json:"currency_code,omitempty"`
 }
 
 type PresentmentMoney struct {
@@ -439,20 +439,21 @@ type Refund struct {
 	UserId            int64            `json:"user_id,omitempty"`
 	RefundLineItems   []RefundLineItem `json:"refund_line_items,omitempty"`
 	Transactions      []Transaction    `json:"transactions,omitempty"`
-	LocationId        int64            `json:"location_id,omitempty"`
-	RestockType       string           `json:"restock_type,omitempty"`
-	SubtotalSet       SubtotalSet      `json:"subtotal_set,omitempty"`
-	TaxTotalSet       TaxTotalSet      `json:"tax_total_set,omitempty"`
+	OrderAdjustments  []string         `json:"order_adjustments,omitempty"`
 	ProcessedAt       *time.Time       `json:"processed_at,omitempty"`
 }
 
 type RefundLineItem struct {
-	Id         int64            `json:"id,omitempty"`
-	Quantity   int              `json:"quantity,omitempty"`
-	LineItemId int64            `json:"line_item_id,omitempty"`
-	LineItem   *LineItem        `json:"line_item,omitempty"`
-	Subtotal   *decimal.Decimal `json:"subtotal,omitempty"`
-	TotalTax   *decimal.Decimal `json:"total_tax,omitempty"`
+	Id          int64            `json:"id,omitempty"`
+	Quantity    int              `json:"quantity,omitempty"`
+	LineItemId  int64            `json:"line_item_id,omitempty"`
+	LineItem    *LineItem        `json:"line_item,omitempty"`
+	Subtotal    *decimal.Decimal `json:"subtotal,omitempty"`
+	TotalTax    *decimal.Decimal `json:"total_tax,omitempty"`
+	LocationId  int64            `json:"location_id,omitempty"`
+	RestockType string           `json:"restock_type,omitempty"`
+	SubtotalSet SubtotalSet      `json:"subtotal_set,omitempty"`
+	TaxTotalSet TaxTotalSet      `json:"tax_total_set,omitempty"`
 }
 
 // List orders

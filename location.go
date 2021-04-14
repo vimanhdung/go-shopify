@@ -53,6 +53,9 @@ type Location struct {
 	// If false, then the location was created by the merchant and isn't tied to a fulfillment service.
 	Legacy bool `json:"legacy"`
 
+	LocalizedCountryName  string `json:"localized_country_name"`
+	LocalizedProvinceName string `json:"localized_province_name"`
+
 	// The name of the location.
 	Name string `json:"name"`
 

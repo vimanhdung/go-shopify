@@ -145,30 +145,17 @@ type Order struct {
 	DiscountApplications   []DiscountApplication  `json:"discount_applications,omitempty"`
 	PaymentDetails         PaymentDetails         `json:"payment_details,omitempty"`
 	PresentmentCurrency    string                 `json:"presentment_currency,omitempty"`
-	TotalLineItemsPriceSet TotalLineItemsPriceSet `json:"total_line_items_price_set,omitempty"`
-	TotalDiscountsSet      TotalLineItemsPriceSet `json:"total_discounts_set,omitempty"`
-	TotalShippingPriceSet  TotalLineItemsPriceSet `json:"total_shipping_price_set,omitempty"`
-	SubtotalPriceSet       TotalLineItemsPriceSet `json:"subtotal_price_set,omitempty"`
-	TotalTaxSet            TotalLineItemsPriceSet `json:"total_tax_set,omitempty"`
+	TotalLineItemsPriceSet PriceSet `json:"total_line_items_price_set,omitempty"`
+	TotalDiscountsSet      PriceSet `json:"total_discounts_set,omitempty"`
+	TotalShippingPriceSet  PriceSet `json:"total_shipping_price_set,omitempty"`
+	SubtotalPriceSet       PriceSet `json:"subtotal_price_set,omitempty"`
+	TotalTaxSet            PriceSet `json:"total_tax_set,omitempty"`
 	TotalTipReceived       *decimal.Decimal       `json:"total_tip_received"`
-	OriginTotalDutiesSet   TotalLineItemsPriceSet `json:"origin_total_duties_set,omitempty"`
+	OriginTotalDutiesSet   PriceSet `json:"origin_total_duties_set,omitempty"`
 	CurrentTotalDutiesSet  interface{}            `json:"current_total_duties_set"`
 	AdminGraphApiId        string                 `json:"admin_graph_api_id"`
-	TotalDiscountPriceSet  TotalDiscountPriceSet  `json:"total_discount_price_set,omitempty"`
-	TotalPriceSet          TotalPriceSet          `json:"total_price_set,omitempty"`
-}
-type TotalPriceSet struct {
-	ShopMoney        ShopMoney        `json:"shop_money,omitempty"`
-	PresentmentMoney PresentmentMoney `json:"presentment_money,omitempty"`
-}
-type TotalDiscountPriceSet struct {
-	ShopMoney        ShopMoney        `json:"shop_money,omitempty"`
-	PresentmentMoney PresentmentMoney `json:"presentment_money,omitempty"`
-}
-
-type TotalLineItemsPriceSet struct {
-	ShopMoney        ShopMoney        `json:"shop_money,omitempty"`
-	PresentmentMoney PresentmentMoney `json:"presentment_money,omitempty"`
+	TotalDiscountPriceSet  PriceSet  `json:"total_discount_price_set,omitempty"`
+	TotalPriceSet          PriceSet          `json:"total_price_set,omitempty"`
 }
 
 type ShopMoney struct {
@@ -262,7 +249,7 @@ type LineItem struct {
 	DiscountAllocations        []DiscountAllocation `json:"discount_allocations,omitempty"`
 	AdminGraphApiID            string               `json:"admin_graph_api_id,omitempty"`
 	PriceSet                   PriceSet             `json:"price_set,omitempty"`
-	TotalDiscountSet           TotalDiscountSet     `json:"total_discount_set,omitempty"`
+	TotalDiscountSet           PriceSet     `json:"total_discount_set,omitempty"`
 }
 
 // UnmarshalJSON custom unmarsaller for LineItem required to mitigate some older orders having LineItem.Properies
@@ -419,16 +406,6 @@ type ClientDetails struct {
 	UserAgent      string `json:"user_agent,omitempty"`
 }
 
-type SubtotalSet struct {
-	ShopMoney        ShopMoney        `json:"shop_money,omitempty"`
-	PresentmentMoney PresentmentMoney `json:"presentment_money,omitempty"`
-}
-
-type TaxTotalSet struct {
-	ShopMoney        ShopMoney        `json:"shop_money,omitempty"`
-	PresentmentMoney PresentmentMoney `json:"presentment_money,omitempty"`
-}
-
 type Refund struct {
 	AdminGraphqlApiID string           `json:"admin_graphql_api_id,omitempty"`
 	Id                int64            `json:"id,omitempty"`
@@ -452,8 +429,8 @@ type RefundLineItem struct {
 	TotalTax    *decimal.Decimal `json:"total_tax,omitempty"`
 	LocationId  int64            `json:"location_id,omitempty"`
 	RestockType string           `json:"restock_type,omitempty"`
-	SubtotalSet SubtotalSet      `json:"subtotal_set,omitempty"`
-	TaxTotalSet TaxTotalSet      `json:"tax_total_set,omitempty"`
+	SubtotalSet PriceSet      `json:"subtotal_set,omitempty"`
+	TaxTotalSet PriceSet      `json:"tax_total_set,omitempty"`
 }
 
 // List orders

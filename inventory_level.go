@@ -2,6 +2,7 @@ package goshopify
 
 import (
 	"fmt"
+	"time"
 )
 
 const inventoryLevelsBasePath = "inventory_levels"
@@ -24,11 +25,11 @@ type InventoryLevelServiceOp struct {
 
 // InventoryLevel represents a Shopify inventory item
 type InventoryLevel struct {
-	InventoryItemID   int    `json:"inventory_item_id"`
-	LocationID        int    `json:"location_id"`
-	Available         int    `json:"available"`
-	UpdatedAt         string `json:"updated_at"`
-	AdminGraphqlAPIID string `json:"admin_graphql_api_id"`
+	InventoryItemID   int        `json:"inventory_item_id"`
+	LocationID        int        `json:"location_id"`
+	Available         int        `json:"available"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	AdminGraphqlAPIID string     `json:"admin_graphql_api_id"`
 }
 
 // InventoryLevelResource is used for handling single item requests and responses

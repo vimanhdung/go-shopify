@@ -25,9 +25,9 @@ type InventoryLevelServiceOp struct {
 
 // InventoryLevel represents a Shopify inventory item
 type InventoryLevel struct {
-	InventoryItemID   int        `json:"inventory_item_id"`
-	LocationID        int        `json:"location_id"`
-	Available         int        `json:"available"`
+	InventoryItemID   int64        `json:"inventory_item_id"`
+	LocationID        int64        `json:"location_id"`
+	Available         int32        `json:"available"`
 	UpdatedAt         *time.Time `json:"updated_at"`
 	AdminGraphqlAPIID string     `json:"admin_graphql_api_id"`
 }
@@ -43,20 +43,20 @@ type InventoryLevelsResource struct {
 }
 
 type AdjustsInventoryLevel struct {
-	LocationID          int `json:"location_id"`
-	InventoryItemID     int `json:"inventory_item_id"`
-	AvailableAdjustment int `json:"available_adjustment"`
+	LocationID          int64 `json:"location_id"`
+	InventoryItemID     int64 `json:"inventory_item_id"`
+	AvailableAdjustment int64 `json:"available_adjustment"`
 }
 
 type ConnectInventoryLevel struct {
-	LocationID      int `json:"location_id"`
-	InventoryItemID int `json:"inventory_item_id"`
+	LocationID      int64 `json:"location_id"`
+	InventoryItemID int64 `json:"inventory_item_id"`
 }
 
 type SetInventoryLevel struct {
-	LocationID      int `json:"location_id"`
-	InventoryItemID int `json:"inventory_item_id"`
-	Available       int `json:"available"`
+	LocationID      int64 `json:"location_id"`
+	InventoryItemID int64 `json:"inventory_item_id"`
+	Available       int64 `json:"available"`
 }
 
 // List inventory items

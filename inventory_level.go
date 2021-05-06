@@ -59,6 +59,11 @@ type SetInventoryLevel struct {
 	Available       int64 `json:"available"`
 }
 
+type OptionInventoryLevel struct {
+	LocationIds      []int64 `url:"location_ids,omitempty"`
+	InventoryItemIds []int64 `url:"inventory_item_ids,omitempty"`
+}
+
 // List inventory items
 func (s *InventoryLevelServiceOp) List(options interface{}) ([]InventoryLevel, error) {
 	path := fmt.Sprintf("%s.json", inventoryLevelsBasePath)

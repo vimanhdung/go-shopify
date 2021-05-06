@@ -55,7 +55,7 @@ type InventoryItemsResource struct {
 }
 
 type OptionGetListInventoryItem struct {
-	Ids []int64 `url:"ids,omitempty"`
+	Ids string `url:"ids,omitempty"`
 }
 
 // List inventory items

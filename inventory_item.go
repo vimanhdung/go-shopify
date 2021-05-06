@@ -54,6 +54,10 @@ type InventoryItemsResource struct {
 	InventoryItems []InventoryItem `json:"inventory_items"`
 }
 
+type OptionGetListInventoryItem struct {
+	Ids []int64 `url:"ids,omitempty"`
+}
+
 // List inventory items
 func (s *InventoryItemServiceOp) List(options interface{}) ([]InventoryItem, error) {
 	path := fmt.Sprintf("%s.json", inventoryItemsBasePath)

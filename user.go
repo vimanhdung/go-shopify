@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-const usersBasePath = "users"
+const usersBasePath = "api/2021-01/users"
 
 // UserService is an interface for interacting with the users
 // endpoints of the Shopify API.

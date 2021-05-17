@@ -199,7 +199,7 @@ type DiscountCode struct {
 }
 
 type DiscountAllocation struct {
-	Amount                  float64  `json:"amount,omitempty"`
+	Amount                  string  `json:"amount,omitempty"`
 	DiscountAllocationIndex int32    `json:"discount_allocation_index,omitempty"`
 	AmountSet               PriceSet `json:"amount_set,omitempty"`
 }

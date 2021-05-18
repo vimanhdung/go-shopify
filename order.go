@@ -314,7 +314,7 @@ type ShippingLines struct {
 	DeliveryCategory              string           `json:"delivery_category,omitempty"`
 	CarrierIdentifier             string           `json:"carrier_identifier,omitempty"`
 	TaxLines                      []TaxLine        `json:"tax_lines,omitempty"`
-	DiscountedPrice               float64          `json:"discounted_price,omitempty"`
+	DiscountedPrice               *decimal.Decimal `json:"discounted_price,omitempty"`
 	DiscountedPriceSet            PriceSet         `json:"discounted_price_set,omitempty"`
 }
 

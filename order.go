@@ -388,17 +388,29 @@ type ClientDetails struct {
 }
 
 type Refund struct {
-	AdminGraphqlApiID string           `json:"admin_graphql_api_id,omitempty"`
-	Id                int64            `json:"id,omitempty"`
-	OrderId           int64            `json:"order_id,omitempty"`
-	CreatedAt         *time.Time       `json:"created_at,omitempty"`
-	Note              string           `json:"note,omitempty"`
-	Restock           bool             `json:"restock,omitempty"`
-	UserId            int64            `json:"user_id,omitempty"`
-	RefundLineItems   []RefundLineItem `json:"refund_line_items,omitempty"`
-	Transactions      []Transaction    `json:"transactions,omitempty"`
-	OrderAdjustments  []string         `json:"order_adjustments,omitempty"`
-	ProcessedAt       *time.Time       `json:"processed_at,omitempty"`
+	AdminGraphqlApiID string            `json:"admin_graphql_api_id,omitempty"`
+	Id                int64             `json:"id,omitempty"`
+	OrderId           int64             `json:"order_id,omitempty"`
+	CreatedAt         *time.Time        `json:"created_at,omitempty"`
+	Note              string            `json:"note,omitempty"`
+	Restock           bool              `json:"restock,omitempty"`
+	UserId            int64             `json:"user_id,omitempty"`
+	RefundLineItems   []RefundLineItem  `json:"refund_line_items,omitempty"`
+	Transactions      []Transaction     `json:"transactions,omitempty"`
+	OrderAdjustments  []OrderAdjustment `json:"order_adjustments,omitempty"`
+	ProcessedAt       *time.Time        `json:"processed_at,omitempty"`
+}
+
+type OrderAdjustment struct {
+	ID           int64    `json:"id"`
+	OrderID      int64    `json:"order_id"`
+	RefundID     int64    `json:"refund_id"`
+	Amount       string   `json:"amount"`
+	TaxAmount    string   `json:"tax_amount"`
+	Kind         string   `json:"kind"`
+	Reason       string   `json:"reason"`
+	AmountSet    PriceSet `json:"amount_set"`
+	TaxAmountSet PriceSet `json:"tax_amount_set"`
 }
 
 type RefundLineItem struct {

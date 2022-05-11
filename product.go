@@ -40,23 +40,24 @@ type ProductServiceOp struct {
 
 // Product represents a Shopify product
 type Product struct {
-	ID                             int64           `json:"id,omitempty"`
-	Title                          string          `json:"title,omitempty"`
-	BodyHTML                       string          `json:"body_html,omitempty"`
-	Vendor                         string          `json:"vendor,omitempty"`
-	ProductType                    string          `json:"product_type,omitempty"`
-	Handle                         string          `json:"handle,omitempty"`
-	CreatedAt                      *time.Time      `json:"created_at,omitempty"`
-	UpdatedAt                      *time.Time      `json:"updated_at,omitempty"`
-	PublishedAt                    *time.Time      `json:"published_at,omitempty"`
-	PublishedScope                 string          `json:"published_scope,omitempty"`
-	Tags                           string          `json:"tags,omitempty"`
-	Options                        []ProductOption `json:"options,omitempty"`
-	Variants                       []Variant       `json:"variants,omitempty"`
-	Image                          Image           `json:"image,omitempty"`
-	Images                         []Image         `json:"images,omitempty"`
-	TemplateSuffix                 string          `json:"template_suffix,omitempty"`
-	AdminGraphqlAPIID              string          `json:"admin_graphql_api_id,omitempty"`
+	ID                int64           `json:"id,omitempty"`
+	Title             string          `json:"title,omitempty"`
+	BodyHTML          string          `json:"body_html,omitempty"`
+	Vendor            string          `json:"vendor,omitempty"`
+	ProductType       string          `json:"product_type,omitempty"`
+	Handle            string          `json:"handle,omitempty"`
+	CreatedAt         *time.Time      `json:"created_at,omitempty"`
+	UpdatedAt         *time.Time      `json:"updated_at,omitempty"`
+	PublishedAt       *time.Time      `json:"published_at,omitempty"`
+	PublishedScope    string          `json:"published_scope,omitempty"`
+	Tags              string          `json:"tags,omitempty"`
+	Options           []ProductOption `json:"options,omitempty"`
+	Variants          []Variant       `json:"variants,omitempty"`
+	Image             Image           `json:"image,omitempty"`
+	Images            []Image         `json:"images,omitempty"`
+	TemplateSuffix    string          `json:"template_suffix,omitempty"`
+	Status            string          `json:"status,omitempty"`
+	AdminGraphqlAPIID string          `json:"admin_graphql_api_id,omitempty"`
 }
 
 // The options provided by Shopify

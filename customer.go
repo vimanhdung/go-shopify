@@ -54,6 +54,7 @@ type Customer struct {
 	AcceptsMarketing          bool               `json:"accepts_marketing,omitempty"`
 	DefaultAddress            *CustomerAddress   `json:"default_address,omitempty"`
 	Addresses                 []*CustomerAddress `json:"addresses,omitempty"`
+	Addresses                 []*CustomerAddress `json:"addresses,omitempty"`
 	CreatedAt                 *time.Time         `json:"created_at,omitempty"`
 	UpdatedAt                 *time.Time         `json:"updated_at,omitempty"`
 	Metafields                []Metafield        `json:"metafields,omitempty"`
@@ -62,6 +63,14 @@ type Customer struct {
 	TaxExemptions             []string           `json:"tax_exemptions,omitempty"`
 	AdminGraphqlApiId         string             `json:"admin_graphql_api_id"`
 	Currency                  string             `json:"currency"`
+	EmailMarketingConsent     *MarketingConsent  `json:"email_marketing_consent"`
+	SmsMarketingConsent       *MarketingConsent  `json:"sms_marketing_consent"`
+}
+
+type MarketingConsent struct {
+	State            string `json:"state"`
+	OptInLevel       string `json:"opt_in_level"`
+	ConsentUpdatedAt string `json:"consent_updated_at"`
 }
 
 // Represents the result from the customers/X.json endpoint

@@ -54,7 +54,6 @@ type Customer struct {
 	AcceptsMarketing          bool               `json:"accepts_marketing,omitempty"`
 	DefaultAddress            *CustomerAddress   `json:"default_address,omitempty"`
 	Addresses                 []*CustomerAddress `json:"addresses,omitempty"`
-	Addresses                 []*CustomerAddress `json:"addresses,omitempty"`
 	CreatedAt                 *time.Time         `json:"created_at,omitempty"`
 	UpdatedAt                 *time.Time         `json:"updated_at,omitempty"`
 	Metafields                []Metafield        `json:"metafields,omitempty"`

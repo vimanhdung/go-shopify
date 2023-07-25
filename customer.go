@@ -67,9 +67,10 @@ type Customer struct {
 }
 
 type MarketingConsent struct {
-	State            string `json:"state"`
-	OptInLevel       string `json:"opt_in_level"`
-	ConsentUpdatedAt string `json:"consent_updated_at"`
+	State                string     `json:"state"`
+	OptInLevel           string     `json:"opt_in_level"`
+	ConsentUpdatedAt     *time.Time `json:"consent_updated_at"`
+	ConsentCollectedFrom string     `json:"consent_collected_from,omitempty"`
 }
 
 // Represents the result from the customers/X.json endpoint

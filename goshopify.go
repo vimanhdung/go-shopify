@@ -540,18 +540,18 @@ type ListOptions struct {
 
 	// Page is used to specify a specific page to load.
 	// It is the deprecated way to do pagination.
-	Page         int       `url:"page,omitempty" json:"page,omitempty"`
-	Limit        int       `url:"limit,omitempty" json:"limit,omitempty"`
-	SinceID      int64     `url:"since_id,omitempty" json:"since_id,omitempty"`
-	CreatedAtMin time.Time `url:"created_at_min,omitempty" json:"created_at_min,omitempty"`
-	CreatedAtMax time.Time `url:"created_at_max,omitempty" json:"created_at_max,omitempty"`
-	UpdatedAtMin time.Time `url:"updated_at_min,omitempty" json:"updated_at_min,omitempty"`
-	UpdatedAtMax time.Time `url:"updated_at_max,omitempty" json:"updated_at_max,omitempty"`
-	Order        string    `url:"order,omitempty" json:"order,omitempty"`
-	Fields       string    `url:"fields,omitempty" json:"fields,omitempty"`
-	Vendor       string    `url:"vendor,omitempty" json:"vendor,omitempty"`
-	IDs          []int64   `url:"ids,omitempty,comma" json:"ids,omitempty"`
-	Status       string    `json:"status,omitempty" json:"status,omitempty"`
+	Page         int        `url:"page,omitempty" json:"page,omitempty"`
+	Limit        int        `url:"limit,omitempty" json:"limit,omitempty"`
+	SinceID      int64      `url:"since_id,omitempty" json:"since_id,omitempty"`
+	CreatedAtMin *time.Time `url:"created_at_min,omitempty" json:"created_at_min,omitempty"`
+	CreatedAtMax *time.Time `url:"created_at_max,omitempty" json:"created_at_max,omitempty"`
+	UpdatedAtMin *time.Time `url:"updated_at_min,omitempty" json:"updated_at_min,omitempty"`
+	UpdatedAtMax *time.Time `url:"updated_at_max,omitempty" json:"updated_at_max,omitempty"`
+	Order        string     `url:"order,omitempty" json:"order,omitempty"`
+	Fields       string     `url:"fields,omitempty" json:"fields,omitempty"`
+	Vendor       string     `url:"vendor,omitempty" json:"vendor,omitempty"`
+	IDs          []int64    `url:"ids,omitempty,comma" json:"ids,omitempty"`
+	Status       string     `json:"status,omitempty" json:"status,omitempty"`
 }
 
 // General count options that can be used for most collection counts.

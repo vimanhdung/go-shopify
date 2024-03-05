@@ -29,13 +29,13 @@ type InventoryItem struct {
 	SKU                          string                        `json:"sku,omitempty"`
 	CreatedAt                    *time.Time                    `json:"created_at,omitempty"`
 	UpdatedAt                    *time.Time                    `json:"updated_at,omitempty"`
-	RequiresShipping             *bool                         `json:"requires_shipping"`
-	Cost                         *decimal.Decimal              `json:"cost,omitempty"`
-	CountryCodeOfOrigin          string                        `json:"country_code_of_origin"`
-	ProvinceCodeOfOrigin         string                        `json:"province_code_of_origin"`
-	HarmonizedSystemCode         int64                         `json:"harmonized_system_code"`
-	Tracked                      *bool                         `json:"tracked,omitempty"`
-	CountryHarmonizedSystemCodes []CountryHarmonizedSystemCode `json:"country_harmonized_system_codes"`
+	RequiresShipping             *bool                         `json:"requires_shipping,omitempty"`
+	Cost                         *decimal.Decimal              `json:"cost,omitempty,omitempty"`
+	CountryCodeOfOrigin          string                        `json:"country_code_of_origin,omitempty"`
+	ProvinceCodeOfOrigin         string                        `json:"province_code_of_origin,omitempty"`
+	HarmonizedSystemCode         interface{}                   `json:"harmonized_system_code,omitempty"`
+	Tracked                      *bool                         `json:"tracked,omitempty,omitempty"`
+	CountryHarmonizedSystemCodes []CountryHarmonizedSystemCode `json:"country_harmonized_system_codes,omitempty"`
 	AdminGraphqlAPIID            string                        `json:"admin_graphql_api_id,omitempty"`
 }
 

@@ -126,11 +126,9 @@ type Order struct {
 	Tags                   string                `json:"tags,omitempty"`
 	LocationId             int64                 `json:"location_id,omitempty"`
 	PaymentGatewayNames    []string              `json:"payment_gateway_names,omitempty"`
-	ProcessingMethod       string                `json:"processing_method,omitempty"`
 	Refunds                []Refund              `json:"refunds,omitempty"`
 	UserId                 int64                 `json:"user_id,omitempty"`
 	OrderStatusUrl         string                `json:"order_status_url,omitempty"`
-	Gateway                string                `json:"gateway,omitempty"`
 	Confirmed              bool                  `json:"confirmed,omitempty"`
 	TotalPriceUSD          *decimal.Decimal      `json:"total_price_usd,omitempty"`
 	CheckoutToken          string                `json:"checkout_token,omitempty"`
@@ -143,7 +141,6 @@ type Order struct {
 	CheckoutID             int64                 `json:"checkout_id,omitempty"`
 	ContactEmail           string                `json:"contact_email,omitempty"`
 	DiscountApplications   []DiscountApplication `json:"discount_applications,omitempty"`
-	PaymentDetails         PaymentDetails        `json:"payment_details,omitempty"`
 	PresentmentCurrency    string                `json:"presentment_currency,omitempty"`
 	TotalLineItemsPriceSet PriceSet              `json:"total_line_items_price_set,omitempty"`
 	TotalDiscountsSet      PriceSet              `json:"total_discounts_set,omitempty"`
@@ -311,7 +308,6 @@ type ShippingLines struct {
 	Source                        string           `json:"source,omitempty"`
 	Phone                         string           `json:"phone,omitempty"`
 	RequestedFulfillmentServiceID string           `json:"requested_fulfillment_service_id,omitempty"`
-	DeliveryCategory              string           `json:"delivery_category,omitempty"`
 	CarrierIdentifier             string           `json:"carrier_identifier,omitempty"`
 	TaxLines                      []TaxLine        `json:"tax_lines,omitempty"`
 	DiscountedPrice               *decimal.Decimal `json:"discounted_price,omitempty"`

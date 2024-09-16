@@ -26,9 +26,10 @@ const (
 	UnstableApiVersion = "unstable"
 
 	// Shopify API version YYYY-MM - defaults to admin which uses the oldest stable version of the api
-	defaultApiPathPrefix = "admin"
-	defaultApiVersion    = "stable"
-	defaultHttpTimeout   = 10
+	defaultApiPathPrefix     = "admin"
+	defaultApiVersion        = "stable"
+	defaultHttpTimeout       = 10
+	includePresentmentPrices = "include-presentment-prices"
 )
 
 var (
@@ -221,6 +222,9 @@ func (c *Client) NewRequest(method, relPath string, body, options interface{}) (
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("User-Agent", UserAgent)
+	if options.(ProductListOptions).PresentmentPrice {
+		req.Header.Add("X-Shopify-Api-Features", includePresentmentPrices)
+	}
 	if c.token != "" {
 		req.Header.Add("X-Shopify-Access-Token", c.token)
 	} else if c.app.Password != "" {

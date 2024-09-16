@@ -79,6 +79,7 @@ type ProductListOptions struct {
 	PublishedAtMax        time.Time `url:"published_at_max,omitempty"`
 	PublishedStatus       string    `url:"published_status,omitempty"`
 	PresentmentCurrencies string    `url:"presentment_currencies,omitempty"`
+	PresentmentPrice      bool      `url:"-"`
 }
 
 // Represents the result from the products/X.json endpoint

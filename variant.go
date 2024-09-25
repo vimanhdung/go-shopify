@@ -70,8 +70,8 @@ type PresentmentPrice struct {
 }
 
 type Price struct {
-	Amount       float64 `json:"amount,omitempty"`
-	CurrencyCode string  `json:"currency_code,omitempty"`
+	Amount       string `json:"amount,omitempty"`
+	CurrencyCode string `json:"currency_code,omitempty"`
 }
 
 // VariantResource represents the result from the variants/X.json endpoint

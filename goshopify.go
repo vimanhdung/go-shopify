@@ -222,7 +222,7 @@ func (c *Client) NewRequest(method, relPath string, body, options interface{}) (
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("User-Agent", UserAgent)
-	if options.(ProductListOptions).PresentmentPrice {
+	if productListOptions, ok := options.(ProductListOptions); ok && productListOptions.PresentmentPrice {
 		req.Header.Add("X-Shopify-Api-Features", includePresentmentPrices)
 	}
 	if c.token != "" {
